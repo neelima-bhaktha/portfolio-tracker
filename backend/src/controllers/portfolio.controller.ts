@@ -15,6 +15,7 @@ export const createPortfolio = async (req: AuthRequest, res: Response) => {
         
         return res.status(201).json(portfolio);
     } catch (error) {
+        console.error('Error creating portfolio:', error);
         return res.status(500).json({ error: 'Error creating portfolio' });
     }
 };

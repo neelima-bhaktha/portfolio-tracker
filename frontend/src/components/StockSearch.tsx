@@ -54,7 +54,7 @@ const StockSearch = ({ onSelect }: StockSearchProps) => {
         )}
       </div>
 
-      {isOpen && results.length > 0 && (
+      {isOpen && query.trim().length > 0 && (
         <div className="absolute z-10 w-full mt-2 bg-slate-800 border border-slate-700 rounded-lg shadow-2xl max-h-60 overflow-y-auto">
           <ul className="py-2">
             {results.map((result: any, idx: number) => (
@@ -74,6 +74,19 @@ const StockSearch = ({ onSelect }: StockSearchProps) => {
                 <div className="text-xs text-slate-500 px-2 py-1 bg-slate-900 rounded">{result.type}</div>
               </li>
             ))}
+            <li
+              onClick={() => {
+                onSelect(query.toUpperCase(), 'Custom Entry');
+                setIsOpen(false);
+                setQuery('');
+              }}
+              className="px-4 py-3 hover:bg-slate-700 cursor-pointer flex justify-between items-center transition-colors border-t border-slate-700"
+            >
+              <div>
+                <div className="font-semibold text-blue-400">Use "{query.toUpperCase()}"</div>
+                <div className="text-sm text-slate-400">Custom Symbol</div>
+              </div>
+            </li>
           </ul>
         </div>
       )}
