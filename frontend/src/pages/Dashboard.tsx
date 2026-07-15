@@ -108,7 +108,8 @@ const Dashboard = () => {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {portfolios.map((portfolio) => (
-              <div key={portfolio.id} className="bg-slate-800 border border-slate-700 rounded-2xl p-6 hover:border-slate-600 transition-colors cursor-pointer group">
+              <div key={portfolio.id} onClick={() => navigate(`/portfolio/${portfolio.id}`)} className="bg-slate-800 border border-slate-700 rounded-3xl p-6 hover:bg-slate-800/80 hover:border-slate-500 hover:shadow-xl hover:shadow-blue-500/10 hover:-translate-y-1 transition-all duration-300 cursor-pointer group relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full blur-2xl -mr-10 -mt-10 group-hover:bg-blue-500/10 transition-colors"></div>
                 <div className="flex justify-between items-start mb-4">
                   <div className="p-3 bg-slate-700/50 rounded-xl group-hover:bg-blue-500/10 transition-colors">
                     <TrendingUp className="h-6 w-6 text-slate-400 group-hover:text-blue-400 transition-colors" />
