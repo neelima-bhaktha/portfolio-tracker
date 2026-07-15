@@ -8,17 +8,17 @@ export class Portfolio {
     @PrimaryGeneratedColumn("uuid")
     id!: string;
 
-    @Column()
+    @Column("varchar")
     user_id!: string;
 
     @ManyToOne(() => User, user => user.portfolios)
     @JoinColumn({ name: "user_id" })
     user!: User;
 
-    @Column()
+    @Column("varchar")
     name!: string;
 
-    @Column({ default: "active" })
+    @Column("varchar", { default: "active" })
     status!: string;
 
     @CreateDateColumn()

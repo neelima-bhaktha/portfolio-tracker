@@ -1,4 +1,4 @@
-import Redis from 'ioredis';
+import Redis from 'ioredis-mock';
 
 const redisClient = new Redis({
     host: process.env.REDIS_HOST || 'localhost',

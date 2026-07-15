@@ -6,14 +6,14 @@ export class Asset {
     @PrimaryGeneratedColumn("uuid")
     id!: string;
 
-    @Column()
+    @Column("varchar")
     portfolio_id!: string;
 
     @ManyToOne(() => Portfolio, portfolio => portfolio.assets)
     @JoinColumn({ name: "portfolio_id" })
     portfolio!: Portfolio;
 
-    @Column()
+    @Column("varchar")
     ticker_symbol!: string;
 
     @Column({ type: "decimal", precision: 15, scale: 4 })

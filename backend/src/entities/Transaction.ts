@@ -7,21 +7,21 @@ export class Transaction {
     @PrimaryGeneratedColumn("uuid")
     id!: string;
 
-    @Column()
+    @Column("varchar")
     portfolio_id!: string;
 
     @ManyToOne(() => Portfolio, portfolio => portfolio.transactions)
     @JoinColumn({ name: "portfolio_id" })
     portfolio!: Portfolio;
 
-    @Column()
+    @Column("varchar")
     user_id!: string;
 
     @ManyToOne(() => User)
     @JoinColumn({ name: "user_id" })
     user!: User;
 
-    @Column()
+    @Column("varchar")
     ticker_symbol!: string;
 
     @Column({ type: "decimal", precision: 15, scale: 4 })
@@ -30,7 +30,7 @@ export class Transaction {
     @Column({ type: "decimal", precision: 15, scale: 4 })
     price_per_share!: number;
 
-    @Column()
+    @Column("varchar")
     type!: "buy" | "sell";
 
     @CreateDateColumn()

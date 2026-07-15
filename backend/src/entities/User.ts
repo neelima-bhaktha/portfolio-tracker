@@ -6,13 +6,13 @@ export class User {
     @PrimaryGeneratedColumn("uuid")
     id!: string;
 
-    @Column({ unique: true })
+    @Column("varchar", { unique: true })
     email!: string;
 
-    @Column()
+    @Column("varchar")
     password_hash!: string;
 
-    @Column({ default: false })
+    @Column("boolean", { default: false })
     is_verified!: boolean;
 
     @CreateDateColumn()
