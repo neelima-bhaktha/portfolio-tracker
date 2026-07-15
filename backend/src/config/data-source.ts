@@ -7,7 +7,7 @@ import { Transaction } from "../entities/Transaction";
 
 export const AppDataSource = new DataSource({
     type: "better-sqlite3",
-    database: "database.sqlite",
+    database: process.env.DB_PATH || "database.sqlite",
     synchronize: true, // Auto-create tables (dev only)
     logging: false,
     entities: [User, Portfolio, Asset, Transaction],
