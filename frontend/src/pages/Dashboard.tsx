@@ -3,7 +3,7 @@ import { useAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import api from '../api/axios';
 import { LogOut, Plus, Wallet, TrendingUp, Activity } from 'lucide-react';
-import StockSearch from '../components/StockSearch';
+
 
 const Dashboard = () => {
   const { user, logout } = useAuth();

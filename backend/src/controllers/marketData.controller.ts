@@ -3,7 +3,7 @@ import { getQuote, searchStocks } from '../services/marketData.service';
 
 export const getStockQuote = async (req: Request, res: Response) => {
     try {
-        const { symbol } = req.params;
+        const symbol = req.params.symbol as string;
         const data = await getQuote(symbol);
         
         if (!data) return res.status(404).json({ error: 'Symbol not found' });

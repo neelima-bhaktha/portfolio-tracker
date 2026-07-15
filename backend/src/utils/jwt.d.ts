@@ -1,0 +1,8 @@
+import jwt from 'jsonwebtoken';
+export declare const generateTokens: (userId: string) => {
+    accessToken: string;
+    refreshToken: string;
+};
+export declare const verifyAccessToken: (token: string) => string | jwt.JwtPayload;
+export declare const verifyRefreshToken: (token: string) => string | jwt.JwtPayload;
+//# sourceMappingURL=jwt.d.ts.map

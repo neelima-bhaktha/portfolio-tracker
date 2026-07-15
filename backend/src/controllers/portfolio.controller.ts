@@ -32,8 +32,8 @@ export const getPortfolioById = async (req: AuthRequest, res: Response) => {
     try {
         const { id } = req.params;
         const portfolio = await portfolioRepo.findOne({ 
-            where: { id, user_id: req.user.userId },
-            relations: ['assets']
+            where: { id: id as string, user_id: req.user.userId },
+            relations: { assets: true }
         });
         
         if (!portfolio) return res.status(404).json({ error: 'Portfolio not found' });
@@ -47,7 +47,7 @@ export const getPortfolioById = async (req: AuthRequest, res: Response) => {
 export const deletePortfolio = async (req: AuthRequest, res: Response) => {
     try {
         const { id } = req.params;
-        const portfolio = await portfolioRepo.findOne({ where: { id, user_id: req.user.userId } });
+        const portfolio = await portfolioRepo.findOne({ where: { id: id as string, user_id: req.user.userId } });
         
         if (!portfolio) return res.status(404).json({ error: 'Portfolio not found' });
         
